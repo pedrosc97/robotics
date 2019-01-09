@@ -1,0 +1,57 @@
+<launch> 
+
+<arg name="ip" default="192.168.1.1" />
+<arg name="freq" default="8" />
+<node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver" output="screen" clear_params="true" args="-ip $(arg ip)">
+        <param name="outdoor" value="0" />
+        <param name="max_bitrate" value="4000" />
+        <param name="bitrate" value="4000" />
+        <param name="navdata_demo" value="0" />
+        <param name="flight_without_shell" value="0" />
+        <param name="altitude_max" value="4000" />
+        <param name="altitude_min" value="50" />
+        <param name="euler_angle_max" value="0.21" />
+        <param name="control_vz_max" value="700" />
+        <param name="control_yaw" value="1.75" />
+        <param name="detect_type" value="10" />
+        <param name="enemy_colors" value="3" />
+        <param name="detections_select_h" value="32" />
+        <param name="detections_select_v_hsync" value="128" />
+        <param name="enemy_without_shell" value="0" />
+        <param name="ultrasound_freq" value="$(arg freq)" />
+        <param name="realtime_navdata" value="true" />
+        <param name="realtime_video" value="true" />
+        <!-- Covariance Values (3x3 matrices reshaped to 1x9)-->
+        <rosparam param="cov/imu_la">[0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0, 0.1]</rosparam>
+        <rosparam param="cov/imu_av">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]</rosparam>
+        <rosparam param="cov/imu_or">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 100000.0]</rosparam>
+        <remap from="/ardrone/takeoff" 				to="/artrack_keyinput/takeoff" />
+		<remap from="/ardrone/land" 				to="/artrack_keyinput/land" />
+</node>
+
+<node name="imageProcessor" pkg="artrack" type="artrack_imgproc" output="screen">
+	<remap from="imageinput" 						to="/ardrone/image_raw" />
+	<remap from="/artrack_imgproc/cmd_vel" 			to="/cmd_vel" />
+	<remap from="/artrack_imgproc/flightModeSub" 	to="/artrack_keyinput/flightModePub" />
+	<remap from="/artrack_imgproc/takeOffSub" 		to="/artrack_keyinput/takeoff" />
+	<remap from="/artrack_imgproc/landingSub" 		to="/artrack_keyinput/land" />
+</node>
+
+<node name="keyboard_event_publisher" pkg="keyboard_reader" type="keyboard_event_publisher" output="screen">
+</node>
+
+<node name="keyboardMonitor" pkg="artrack" type="artrack_keyinput" output="screen">
+	<remap from="/artrack_keyinput/keyReceiver" 	to="/keyboard" />
+</node>
+
+<node name="droneController" pkg="artrack" type="artrack_controller" output="screen">
+	<remap from="/artrack_controller/autonomous" 	to="/artrack_keyinput/flightModePub" />
+	<remap from="/artrack_controller/imgcoord" 		to="/artrack_imgproc/faceCentroid" />
+	<remap from="/artrack_controller/resolution" 	to="/artrack_imgproc/imgResolution" />
+	<remap from="/artrack_controller/takeOff" 		to="/artrack_keyinput/takeoff" />
+	<remap from="/artrack_controller/landing" 		to="/artrack_keyinput/land" />
+	<remap from="/artrack_controller/faceSize"		to="/artrack_imgproc/faceSize" />
+</node>
+
+
+</launch>

@@ -1,0 +1,2 @@
+artrack:cv_bridge:image_transport:keyboard_reader
+-DCATKIN_DEVEL_PREFIX=/home/pedrosc/robotics/devel -DCMAKE_INSTALL_PREFIX=/home/pedrosc/robotics/install -G Unix Makefiles

@@ -1,0 +1,8 @@
+prefix=/home/pedrosc/robotics/devel
+
+Name: keyboard_reader
+Description: Description of keyboard_reader
+Version: 0.0.0
+Cflags: -I/home/pedrosc/robotics/devel/include
+Libs: -L/home/pedrosc/robotics/devel/lib 
+Requires: 

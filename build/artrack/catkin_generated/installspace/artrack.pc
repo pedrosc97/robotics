@@ -1,0 +1,8 @@
+prefix=/home/pedrosc/robotics/install
+
+Name: artrack
+Description: Description of artrack
+Version: 1.0.1
+Cflags: 
+Libs: -L/home/pedrosc/robotics/install/lib 
+Requires: message_runtime sensor_msgs image_transport cv_bridge geometry_msgs

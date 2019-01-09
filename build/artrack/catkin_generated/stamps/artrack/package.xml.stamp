@@ -1,0 +1,40 @@
+<package format="2">
+
+  <name>artrack</name>
+  <version>1.0.1</version>
+
+  <description>
+  Package to follow object with ARDrone 2.0.
+  </description>
+
+  <maintainer email="pedro.sc.97@gmail.com">PR-ADFA</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>uvc_camera</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>ardrone_autonomy</build_depend>
+  <build_depend>OpenCV</build_depend>
+  <build_depend>keyboard_reader</build_depend>
+
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>uvc_camera</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>image_transport</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>ardrone_autonomy</exec_depend>
+  <exec_depend>OpenCV</exec_depend>
+  <exec_depend>keyboard_reader</exec_depend>
+
+</package>

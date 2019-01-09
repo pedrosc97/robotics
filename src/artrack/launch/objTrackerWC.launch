@@ -1,0 +1,39 @@
+<launch> 
+
+<arg name="device" default="/dev/video0"/>
+<node name="uvc_camera_node" pkg="uvc_camera" type="uvc_camera_node" output="screen">
+    <remap from="camera/image_raw" 					to="camera/rgb/image_color" />
+    <param name="device" value="$(arg device)" />
+    <param name="width" value="320" />
+    <param name="height" value="240" />
+    <param name="frame_rate" value="20" />
+    <param name="exposure" value="0" />
+    <param name="gain" value="100" /> 
+</node>
+
+<node name="imageProcessor" pkg="artrack" type="artrack_imgproc" output="screen">
+	<remap from="imageinput" 						to="/image_raw" />
+	<remap from="/artrack_imgproc/cmd_vel" 			to="/cmd_vel" />
+	<remap from="/artrack_imgproc/flightModeSub" 	to="/artrack_keyinput/flightModePub" />
+	<remap from="/artrack_imgproc/takeOffSub" 		to="/artrack_keyinput/takeoff" />
+	<remap from="/artrack_imgproc/landingSub" 		to="/artrack_keyinput/land" />
+</node>
+
+<node name="keyboard_event_publisher" pkg="keyboard_reader" type="keyboard_event_publisher" output="screen">
+</node>
+
+<node name="keyboardMonitor" pkg="artrack" type="artrack_keyinput" output="screen">
+	<remap from="/artrack_keyinput/keyReceiver" 	to="/keyboard" />
+</node>
+
+<node name="droneController" pkg="artrack" type="artrack_controller" output="screen">
+	<remap from="/artrack_controller/autonomous" 	to="/artrack_keyinput/flightModePub" />
+	<remap from="/artrack_controller/imgcoord" 		to="/artrack_imgproc/faceCentroid" />
+	<remap from="/artrack_controller/resolution" 	to="/artrack_imgproc/imgResolution" />
+	<remap from="/artrack_controller/takeOff" 		to="/artrack_keyinput/takeoff" />
+	<remap from="/artrack_controller/landing" 		to="/artrack_keyinput/land" />
+	<remap from="/artrack_controller/faceSize"		to="/artrack_imgproc/faceSize" />
+</node>
+
+
+</launch>

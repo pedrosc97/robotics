@@ -1,0 +1,8 @@
+prefix=/home/pedrosc/robotics/devel
+
+Name: cv_bridge
+Description: Description of cv_bridge
+Version: 1.12.8
+Cflags: -I/home/pedrosc/robotics/src/cv_bridge/include -I/usr/local/include -I/usr/local/include/opencv
+Libs: -L/home/pedrosc/robotics/devel/lib -lcv_bridge /usr/local/lib/libopencv_core.so.3.4.5 /usr/local/lib/libopencv_imgproc.so.3.4.5 /usr/local/lib/libopencv_imgcodecs.so.3.4.5 /usr/local/lib/libopencv_dnn.so.3.4.5
+Requires: rosconsole sensor_msgs
