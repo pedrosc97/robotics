@@ -1,0 +1,8 @@
+prefix=/home/pedrosc/robotics/devel
+
+Name: keyboard
+Description: Description of keyboard
+Version: 0.1.1
+Cflags: -I/home/pedrosc/robotics/devel/include
+Libs: -L/home/pedrosc/robotics/devel/lib 
+Requires: roscpp std_msgs message_runtime

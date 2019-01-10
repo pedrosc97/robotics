@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/pedrosc/robotics/devel/include/keyboard_reader/Key.h
+/home/pedrosc/robotics/devel/include/keyboard/Key.h
 string
 -
 vector
@@ -21,6 +21,8 @@ ros/builtin_message_traits.h
 -
 ros/message_operations.h
 -
+std_msgs/Header.h
+-
 
 /home/pedrosc/robotics/src/artrack/src/artrack_keyinput.cpp
 ros/ros.h
@@ -33,7 +35,7 @@ std_msgs/Empty.h
 -
 geometry_msgs/Twist.h
 -
-keyboard_reader/Key.h
+keyboard/Key.h
 -
 iostream
 -
@@ -723,6 +725,22 @@ ros/forwards.h
 /opt/ros/kinetic/include/rosconsole/macros_generated.h
 
 /opt/ros/kinetic/include/std_msgs/Empty.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
+/opt/ros/kinetic/include/std_msgs/Header.h
 string
 -
 vector

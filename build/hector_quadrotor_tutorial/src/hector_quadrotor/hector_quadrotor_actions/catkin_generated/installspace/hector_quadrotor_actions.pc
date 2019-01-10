@@ -1,0 +1,8 @@
+prefix=/home/pedrosc/robotics/install
+
+Name: hector_quadrotor_actions
+Description: Description of hector_quadrotor_actions
+Version: 0.0.0
+Cflags: -I/home/pedrosc/robotics/install/include
+Libs: -L/home/pedrosc/robotics/install/lib 
+Requires: roscpp

@@ -1,0 +1,8 @@
+prefix=/home/pedrosc/robotics/install
+
+Name: hector_gazebo_thermal_camera
+Description: Description of hector_gazebo_thermal_camera
+Version: 0.5.1
+Cflags: -I/home/pedrosc/robotics/install/include
+Libs: -L/home/pedrosc/robotics/install/lib 
+Requires: gazebo_plugins

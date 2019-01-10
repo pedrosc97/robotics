@@ -1,0 +1,8 @@
+prefix=/home/pedrosc/robotics/devel
+
+Name: hector_pose_estimation_core
+Description: Description of hector_pose_estimation_core
+Version: 0.3.0
+Cflags: -I/home/pedrosc/robotics/src/hector_quadrotor_tutorial/src/hector_localization/hector_pose_estimation_core/include -I/home/pedrosc/robotics/devel/include -I/usr/include/eigen3
+Libs: -L/home/pedrosc/robotics/devel/lib -lhector_pose_estimation
+Requires: rostime rosconsole roscpp sensor_msgs geometry_msgs nav_msgs geographic_msgs tf

@@ -1,0 +1,8 @@
+prefix=/home/pedrosc/robotics/install
+
+Name: hector_uav_msgs
+Description: Description of hector_uav_msgs
+Version: 0.3.5
+Cflags: -I/home/pedrosc/robotics/install/include
+Libs: -L/home/pedrosc/robotics/install/lib 
+Requires: message_runtime std_msgs
