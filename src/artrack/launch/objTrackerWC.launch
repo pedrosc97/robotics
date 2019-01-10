@@ -19,11 +19,12 @@
 	<remap from="/artrack_imgproc/landingSub" 		to="/artrack_keyinput/land" />
 </node>
 
-<node name="keyboard_event_publisher" pkg="keyboard_reader" type="keyboard_event_publisher" output="screen">
+<node name="keyboard" pkg="keyboard" type="keyboard" output="screen">
 </node>
 
 <node name="keyboardMonitor" pkg="artrack" type="artrack_keyinput" output="screen">
-	<remap from="/artrack_keyinput/keyReceiver" 	to="/keyboard" />
+	<remap from="/artrack_keyinput/idownkeyboard" 	to="/keyboard/keydown" />
+	<remap from="/artrack_keyinput/iupkeyboard" 	to="/keyboard/keyup" />
 </node>
 
 <node name="droneController" pkg="artrack" type="artrack_controller" output="screen">
@@ -35,5 +36,17 @@
 	<remap from="/artrack_controller/faceSize"		to="/artrack_imgproc/faceSize" />
 </node>
 
+<!-- Start Gazebo with wg world running in (max) realtime -->
+<include file="$(find hector_gazebo_worlds)/launch/sick_robot_day_2014.launch"/>
+
+<!-- Spawn simulated quadrotor uav -->
+<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch" >
+    <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor_hokuyo_utm30lx.gazebo.xacro"/>
+    <arg name="controllers" value="
+        controller/attitude
+        controller/velocity
+        controller/position
+        "/>
+  </include>
 
 </launch>

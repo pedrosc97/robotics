@@ -23,7 +23,7 @@
   <build_depend>geometry_msgs</build_depend>
   <build_depend>ardrone_autonomy</build_depend>
   <build_depend>OpenCV</build_depend>
-  <build_depend>keyboard_reader</build_depend>
+  <build_depend>keyboard</build_depend>
 
   <exec_depend>roscpp</exec_depend>
   <exec_depend>std_msgs</exec_depend>
@@ -35,6 +35,6 @@
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>ardrone_autonomy</exec_depend>
   <exec_depend>OpenCV</exec_depend>
-  <exec_depend>keyboard_reader</exec_depend>
+  <exec_depend>keyboard</exec_depend>
 
 </package>

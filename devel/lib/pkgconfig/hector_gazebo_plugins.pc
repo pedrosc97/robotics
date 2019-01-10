@@ -1,0 +1,8 @@
+prefix=/home/pedrosc/robotics/devel
+
+Name: hector_gazebo_plugins
+Description: Description of hector_gazebo_plugins
+Version: 0.5.1
+Cflags: -I/home/pedrosc/robotics/devel/include -I/home/pedrosc/robotics/src/hector_quadrotor_tutorial/src/hector_gazebo/hector_gazebo_plugins/include
+Libs: -L/home/pedrosc/robotics/devel/lib 
+Requires: roscpp std_msgs geometry_msgs nav_msgs tf message_runtime

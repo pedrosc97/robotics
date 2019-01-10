@@ -56,28 +56,6 @@ CMAKE_BINARY_DIR = /home/pedrosc/robotics/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -90,16 +68,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-.PHONY : install/strip/fast
+.PHONY : edit_cache/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -111,6 +89,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -121,6 +110,17 @@ install/local: preinstall
 install/local/fast: install/local
 
 .PHONY : install/local/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target test
 test:
@@ -166,96 +166,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-artrack/CMakeFiles/actionlib_generate_messages_py.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_generate_messages_py.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_py: artrack/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-.PHONY : actionlib_generate_messages_py
-
-# fast build rule for target.
-actionlib_generate_messages_py/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_generate_messages_py.dir/build.make artrack/CMakeFiles/actionlib_generate_messages_py.dir/build
-.PHONY : actionlib_generate_messages_py/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_eus: artrack/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_generate_messages_eus
-
-# fast build rule for target.
-actionlib_generate_messages_eus/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_generate_messages_eus.dir/build.make artrack/CMakeFiles/actionlib_generate_messages_eus.dir/build
-.PHONY : actionlib_generate_messages_eus/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_cpp: artrack/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_generate_messages_cpp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make artrack/CMakeFiles/actionlib_generate_messages_cpp.dir/build
-.PHONY : actionlib_generate_messages_cpp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/tf_generate_messages_py.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf_generate_messages_py.dir/rule
-.PHONY : artrack/CMakeFiles/tf_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_py: artrack/CMakeFiles/tf_generate_messages_py.dir/rule
-
-.PHONY : tf_generate_messages_py
-
-# fast build rule for target.
-tf_generate_messages_py/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf_generate_messages_py.dir/build.make artrack/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/actionlib_generate_messages_lisp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_lisp: artrack/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_generate_messages_lisp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make artrack/CMakeFiles/actionlib_generate_messages_lisp.dir/build
-.PHONY : actionlib_generate_messages_lisp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_eus: artrack/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_eus
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make artrack/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
 artrack/CMakeFiles/artrack_controller.dir/rule:
 	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/artrack_controller.dir/rule
 .PHONY : artrack/CMakeFiles/artrack_controller.dir/rule
@@ -271,109 +181,34 @@ artrack_controller/fast:
 .PHONY : artrack_controller/fast
 
 # Convenience name for target.
-artrack/CMakeFiles/tf_generate_messages_nodejs.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-.PHONY : artrack/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+artrack/CMakeFiles/artrack_imgproc.dir/rule:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/artrack_imgproc.dir/rule
+.PHONY : artrack/CMakeFiles/artrack_imgproc.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_nodejs: artrack/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+artrack_imgproc: artrack/CMakeFiles/artrack_imgproc.dir/rule
 
-.PHONY : tf_generate_messages_nodejs
+.PHONY : artrack_imgproc
 
 # fast build rule for target.
-tf_generate_messages_nodejs/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/tf_generate_messages_nodejs.dir/build
-.PHONY : tf_generate_messages_nodejs/fast
+artrack_imgproc/fast:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/artrack_imgproc.dir/build.make artrack/CMakeFiles/artrack_imgproc.dir/build
+.PHONY : artrack_imgproc/fast
 
 # Convenience name for target.
-artrack/CMakeFiles/tf_generate_messages_lisp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf_generate_messages_lisp.dir/rule
-.PHONY : artrack/CMakeFiles/tf_generate_messages_lisp.dir/rule
+artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
+.PHONY : artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_lisp: artrack/CMakeFiles/tf_generate_messages_lisp.dir/rule
+ardrone_autonomy_generate_messages_nodejs: artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
 
-.PHONY : tf_generate_messages_lisp
+.PHONY : ardrone_autonomy_generate_messages_nodejs
 
 # fast build rule for target.
-tf_generate_messages_lisp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf_generate_messages_lisp.dir/build.make artrack/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_nodejs: artrack/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_generate_messages_nodejs/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
-.PHONY : actionlib_generate_messages_nodejs/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_cpp: artrack/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_cpp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make artrack/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
-.PHONY : actionlib_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/nodelet_generate_messages_py.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : artrack/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_py: artrack/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-.PHONY : nodelet_generate_messages_py
-
-# fast build rule for target.
-nodelet_generate_messages_py/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/nodelet_generate_messages_py.dir/build.make artrack/CMakeFiles/nodelet_generate_messages_py.dir/build
-.PHONY : nodelet_generate_messages_py/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/tf_generate_messages_eus.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf_generate_messages_eus.dir/rule
-.PHONY : artrack/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_eus: artrack/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-.PHONY : tf_generate_messages_eus
-
-# fast build rule for target.
-tf_generate_messages_eus/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf_generate_messages_eus.dir/build.make artrack/CMakeFiles/tf_generate_messages_eus.dir/build
-.PHONY : tf_generate_messages_eus/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : artrack/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_cpp: artrack/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make artrack/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
+ardrone_autonomy_generate_messages_nodejs/fast:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/build
+.PHONY : ardrone_autonomy_generate_messages_nodejs/fast
 
 # Convenience name for target.
 artrack/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/rule:
@@ -389,6 +224,21 @@ ardrone_autonomy_generate_messages_eus: artrack/CMakeFiles/ardrone_autonomy_gene
 ardrone_autonomy_generate_messages_eus/fast:
 	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/build.make artrack/CMakeFiles/ardrone_autonomy_generate_messages_eus.dir/build
 .PHONY : ardrone_autonomy_generate_messages_eus/fast
+
+# Convenience name for target.
+artrack/CMakeFiles/keyboard_reader_generate_messages_nodejs.dir/rule:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/keyboard_reader_generate_messages_nodejs.dir/rule
+.PHONY : artrack/CMakeFiles/keyboard_reader_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+keyboard_reader_generate_messages_nodejs: artrack/CMakeFiles/keyboard_reader_generate_messages_nodejs.dir/rule
+
+.PHONY : keyboard_reader_generate_messages_nodejs
+
+# fast build rule for target.
+keyboard_reader_generate_messages_nodejs/fast:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/keyboard_reader_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/keyboard_reader_generate_messages_nodejs.dir/build
+.PHONY : keyboard_reader_generate_messages_nodejs/fast
 
 # Convenience name for target.
 artrack/CMakeFiles/ardrone_autonomy_generate_messages_cpp.dir/rule:
@@ -436,364 +286,34 @@ ardrone_autonomy_generate_messages_py/fast:
 .PHONY : ardrone_autonomy_generate_messages_py/fast
 
 # Convenience name for target.
-artrack/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-.PHONY : artrack/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+artrack/CMakeFiles/keyboard_reader_generate_messages_cpp.dir/rule:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/keyboard_reader_generate_messages_cpp.dir/rule
+.PHONY : artrack/CMakeFiles/keyboard_reader_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-std_srvs_generate_messages_nodejs: artrack/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
+keyboard_reader_generate_messages_cpp: artrack/CMakeFiles/keyboard_reader_generate_messages_cpp.dir/rule
 
-.PHONY : std_srvs_generate_messages_nodejs
+.PHONY : keyboard_reader_generate_messages_cpp
 
 # fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
+keyboard_reader_generate_messages_cpp/fast:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/keyboard_reader_generate_messages_cpp.dir/build.make artrack/CMakeFiles/keyboard_reader_generate_messages_cpp.dir/build
+.PHONY : keyboard_reader_generate_messages_cpp/fast
 
 # Convenience name for target.
-artrack/CMakeFiles/tf_generate_messages_cpp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf_generate_messages_cpp.dir/rule
-.PHONY : artrack/CMakeFiles/tf_generate_messages_cpp.dir/rule
+artrack/CMakeFiles/keyboard_reader_generate_messages_eus.dir/rule:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/keyboard_reader_generate_messages_eus.dir/rule
+.PHONY : artrack/CMakeFiles/keyboard_reader_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_cpp: artrack/CMakeFiles/tf_generate_messages_cpp.dir/rule
+keyboard_reader_generate_messages_eus: artrack/CMakeFiles/keyboard_reader_generate_messages_eus.dir/rule
 
-.PHONY : tf_generate_messages_cpp
+.PHONY : keyboard_reader_generate_messages_eus
 
 # fast build rule for target.
-tf_generate_messages_cpp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf_generate_messages_cpp.dir/build.make artrack/CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-.PHONY : artrack/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_eus: artrack/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make artrack/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : artrack/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: artrack/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/std_srvs_generate_messages_py.dir/build.make artrack/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/bond_generate_messages_py.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/bond_generate_messages_py.dir/rule
-.PHONY : artrack/CMakeFiles/bond_generate_messages_py.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_py: artrack/CMakeFiles/bond_generate_messages_py.dir/rule
-
-.PHONY : bond_generate_messages_py
-
-# fast build rule for target.
-bond_generate_messages_py/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/bond_generate_messages_py.dir/build.make artrack/CMakeFiles/bond_generate_messages_py.dir/build
-.PHONY : bond_generate_messages_py/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-.PHONY : artrack/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_lisp: artrack/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make artrack/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
-.PHONY : artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-ardrone_autonomy_generate_messages_nodejs: artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/rule
-
-.PHONY : ardrone_autonomy_generate_messages_nodejs
-
-# fast build rule for target.
-ardrone_autonomy_generate_messages_nodejs/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/ardrone_autonomy_generate_messages_nodejs.dir/build
-.PHONY : ardrone_autonomy_generate_messages_nodejs/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_lisp: artrack/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make artrack/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_py: artrack/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_py
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_py/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make artrack/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
-.PHONY : actionlib_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-.PHONY : artrack/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_cpp: artrack/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_cpp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_cpp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make artrack/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
-.PHONY : tf2_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule
-.PHONY : artrack/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_nodejs: artrack/CMakeFiles/nodelet_generate_messages_nodejs.dir/rule
-
-.PHONY : nodelet_generate_messages_nodejs
-
-# fast build rule for target.
-nodelet_generate_messages_nodejs/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/nodelet_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/nodelet_generate_messages_nodejs.dir/build
-.PHONY : nodelet_generate_messages_nodejs/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-.PHONY : artrack/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_lisp: artrack/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_lisp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_lisp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make artrack/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
-.PHONY : tf2_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
-.PHONY : artrack/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_eus: artrack/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_eus
-
-# fast build rule for target.
-tf2_msgs_generate_messages_eus/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make artrack/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
-.PHONY : tf2_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/nodelet_generate_messages_cpp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-.PHONY : artrack/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_cpp: artrack/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-
-.PHONY : nodelet_generate_messages_cpp
-
-# fast build rule for target.
-nodelet_generate_messages_cpp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make artrack/CMakeFiles/nodelet_generate_messages_cpp.dir/build
-.PHONY : nodelet_generate_messages_cpp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/nodelet_generate_messages_lisp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-.PHONY : artrack/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_lisp: artrack/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-
-.PHONY : nodelet_generate_messages_lisp
-
-# fast build rule for target.
-nodelet_generate_messages_lisp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make artrack/CMakeFiles/nodelet_generate_messages_lisp.dir/build
-.PHONY : nodelet_generate_messages_lisp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/bond_generate_messages_cpp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/bond_generate_messages_cpp.dir/rule
-.PHONY : artrack/CMakeFiles/bond_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_cpp: artrack/CMakeFiles/bond_generate_messages_cpp.dir/rule
-
-.PHONY : bond_generate_messages_cpp
-
-# fast build rule for target.
-bond_generate_messages_cpp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/bond_generate_messages_cpp.dir/build.make artrack/CMakeFiles/bond_generate_messages_cpp.dir/build
-.PHONY : bond_generate_messages_cpp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/bond_generate_messages_eus.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/bond_generate_messages_eus.dir/rule
-.PHONY : artrack/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_eus: artrack/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-.PHONY : bond_generate_messages_eus
-
-# fast build rule for target.
-bond_generate_messages_eus/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/bond_generate_messages_eus.dir/build.make artrack/CMakeFiles/bond_generate_messages_eus.dir/build
-.PHONY : bond_generate_messages_eus/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/bond_generate_messages_lisp.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/bond_generate_messages_lisp.dir/rule
-.PHONY : artrack/CMakeFiles/bond_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_lisp: artrack/CMakeFiles/bond_generate_messages_lisp.dir/rule
-
-.PHONY : bond_generate_messages_lisp
-
-# fast build rule for target.
-bond_generate_messages_lisp/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/bond_generate_messages_lisp.dir/build.make artrack/CMakeFiles/bond_generate_messages_lisp.dir/build
-.PHONY : bond_generate_messages_lisp/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
-.PHONY : artrack/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_nodejs: artrack/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-tf2_msgs_generate_messages_nodejs/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
-.PHONY : tf2_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/nodelet_generate_messages_eus.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-.PHONY : artrack/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_eus: artrack/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-.PHONY : nodelet_generate_messages_eus
-
-# fast build rule for target.
-nodelet_generate_messages_eus/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/nodelet_generate_messages_eus.dir/build.make artrack/CMakeFiles/nodelet_generate_messages_eus.dir/build
-.PHONY : nodelet_generate_messages_eus/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/bond_generate_messages_nodejs.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-.PHONY : artrack/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_nodejs: artrack/CMakeFiles/bond_generate_messages_nodejs.dir/rule
-
-.PHONY : bond_generate_messages_nodejs
-
-# fast build rule for target.
-bond_generate_messages_nodejs/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/bond_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/bond_generate_messages_nodejs.dir/build
-.PHONY : bond_generate_messages_nodejs/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/artrack_imgproc.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/artrack_imgproc.dir/rule
-.PHONY : artrack/CMakeFiles/artrack_imgproc.dir/rule
-
-# Convenience name for target.
-artrack_imgproc: artrack/CMakeFiles/artrack_imgproc.dir/rule
-
-.PHONY : artrack_imgproc
-
-# fast build rule for target.
-artrack_imgproc/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/artrack_imgproc.dir/build.make artrack/CMakeFiles/artrack_imgproc.dir/build
-.PHONY : artrack_imgproc/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-.PHONY : artrack/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: artrack/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make artrack/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-artrack/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-.PHONY : artrack/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_py: artrack/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_py
-
-# fast build rule for target.
-tf2_msgs_generate_messages_py/fast:
-	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make artrack/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
-.PHONY : tf2_msgs_generate_messages_py/fast
+keyboard_reader_generate_messages_eus/fast:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/keyboard_reader_generate_messages_eus.dir/build.make artrack/CMakeFiles/keyboard_reader_generate_messages_eus.dir/build
+.PHONY : keyboard_reader_generate_messages_eus/fast
 
 # Convenience name for target.
 artrack/CMakeFiles/artrack_keyinput.dir/rule:
@@ -809,6 +329,36 @@ artrack_keyinput: artrack/CMakeFiles/artrack_keyinput.dir/rule
 artrack_keyinput/fast:
 	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/artrack_keyinput.dir/build.make artrack/CMakeFiles/artrack_keyinput.dir/build
 .PHONY : artrack_keyinput/fast
+
+# Convenience name for target.
+artrack/CMakeFiles/keyboard_reader_generate_messages_lisp.dir/rule:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/keyboard_reader_generate_messages_lisp.dir/rule
+.PHONY : artrack/CMakeFiles/keyboard_reader_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+keyboard_reader_generate_messages_lisp: artrack/CMakeFiles/keyboard_reader_generate_messages_lisp.dir/rule
+
+.PHONY : keyboard_reader_generate_messages_lisp
+
+# fast build rule for target.
+keyboard_reader_generate_messages_lisp/fast:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/keyboard_reader_generate_messages_lisp.dir/build.make artrack/CMakeFiles/keyboard_reader_generate_messages_lisp.dir/build
+.PHONY : keyboard_reader_generate_messages_lisp/fast
+
+# Convenience name for target.
+artrack/CMakeFiles/keyboard_reader_generate_messages_py.dir/rule:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f CMakeFiles/Makefile2 artrack/CMakeFiles/keyboard_reader_generate_messages_py.dir/rule
+.PHONY : artrack/CMakeFiles/keyboard_reader_generate_messages_py.dir/rule
+
+# Convenience name for target.
+keyboard_reader_generate_messages_py: artrack/CMakeFiles/keyboard_reader_generate_messages_py.dir/rule
+
+.PHONY : keyboard_reader_generate_messages_py
+
+# fast build rule for target.
+keyboard_reader_generate_messages_py/fast:
+	cd /home/pedrosc/robotics/build && $(MAKE) -f artrack/CMakeFiles/keyboard_reader_generate_messages_py.dir/build.make artrack/CMakeFiles/keyboard_reader_generate_messages_py.dir/build
+.PHONY : keyboard_reader_generate_messages_py/fast
 
 src/artrack_controller.o: src/artrack_controller.cpp.o
 
@@ -897,56 +447,26 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install"
 	@echo "... edit_cache"
-	@echo "... actionlib_generate_messages_py"
-	@echo "... actionlib_generate_messages_eus"
-	@echo "... actionlib_generate_messages_cpp"
-	@echo "... tf_generate_messages_py"
-	@echo "... actionlib_generate_messages_lisp"
-	@echo "... actionlib_msgs_generate_messages_eus"
+	@echo "... list_install_components"
+	@echo "... install/strip"
 	@echo "... artrack_controller"
-	@echo "... tf_generate_messages_nodejs"
-	@echo "... tf_generate_messages_lisp"
-	@echo "... actionlib_generate_messages_nodejs"
-	@echo "... actionlib_msgs_generate_messages_cpp"
-	@echo "... nodelet_generate_messages_py"
-	@echo "... rebuild_cache"
-	@echo "... tf_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_cpp"
+	@echo "... artrack_imgproc"
+	@echo "... ardrone_autonomy_generate_messages_nodejs"
+	@echo "... install/local"
 	@echo "... ardrone_autonomy_generate_messages_eus"
+	@echo "... keyboard_reader_generate_messages_nodejs"
+	@echo "... rebuild_cache"
 	@echo "... ardrone_autonomy_generate_messages_cpp"
 	@echo "... ardrone_autonomy_generate_messages_lisp"
-	@echo "... install"
 	@echo "... ardrone_autonomy_generate_messages_py"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... bond_generate_messages_py"
-	@echo "... std_srvs_generate_messages_lisp"
-	@echo "... install/strip"
-	@echo "... ardrone_autonomy_generate_messages_nodejs"
-	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... tf2_msgs_generate_messages_cpp"
-	@echo "... nodelet_generate_messages_nodejs"
-	@echo "... tf2_msgs_generate_messages_lisp"
-	@echo "... tf2_msgs_generate_messages_eus"
-	@echo "... nodelet_generate_messages_cpp"
-	@echo "... nodelet_generate_messages_lisp"
-	@echo "... bond_generate_messages_cpp"
-	@echo "... list_install_components"
-	@echo "... bond_generate_messages_eus"
-	@echo "... bond_generate_messages_lisp"
-	@echo "... tf2_msgs_generate_messages_nodejs"
-	@echo "... nodelet_generate_messages_eus"
-	@echo "... bond_generate_messages_nodejs"
-	@echo "... artrack_imgproc"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
-	@echo "... tf2_msgs_generate_messages_py"
+	@echo "... keyboard_reader_generate_messages_cpp"
+	@echo "... keyboard_reader_generate_messages_eus"
 	@echo "... artrack_keyinput"
-	@echo "... install/local"
+	@echo "... keyboard_reader_generate_messages_lisp"
 	@echo "... test"
+	@echo "... keyboard_reader_generate_messages_py"
 	@echo "... src/artrack_controller.o"
 	@echo "... src/artrack_controller.i"
 	@echo "... src/artrack_controller.s"

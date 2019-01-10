@@ -37,11 +37,12 @@
 	<remap from="/artrack_imgproc/landingSub" 		to="/artrack_keyinput/land" />
 </node>
 
-<node name="keyboard_event_publisher" pkg="keyboard_reader" type="keyboard_event_publisher" output="screen">
+<node name="keyboard" pkg="keyboard" type="keyboard" output="screen">
 </node>
 
 <node name="keyboardMonitor" pkg="artrack" type="artrack_keyinput" output="screen">
-	<remap from="/artrack_keyinput/keyReceiver" 	to="/keyboard" />
+	<remap from="/artrack_keyinput/idownkeyboard" 	to="/keyboard/keydown" />
+	<remap from="/artrack_keyinput/iupkeyboard" 	to="/keyboard/keyup" />
 </node>
 
 <node name="droneController" pkg="artrack" type="artrack_controller" output="screen">

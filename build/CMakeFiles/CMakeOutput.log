@@ -664,3 +664,31 @@ Linking C executable cmTC_9bb57
 make[1]: Leaving directory '/home/pedrosc/robotics/build/CMakeFiles/CMakeTmp'
 
 
+Determining if the Q_WS_X11 exist passed with the following output:
+Change Dir: /home/pedrosc/robotics/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ed8a0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ed8a0.dir/build.make CMakeFiles/cmTC_ed8a0.dir/build
+make[1]: Entering directory '/home/pedrosc/robotics/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ed8a0.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_ed8a0.dir/CheckSymbolExists.cxx.o -c /home/pedrosc/robotics/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_ed8a0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ed8a0.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_ed8a0.dir/CheckSymbolExists.cxx.o  -o cmTC_ed8a0 -rdynamic 
+make[1]: Leaving directory '/home/pedrosc/robotics/build/CMakeFiles/CMakeTmp'
+
+File /home/pedrosc/robotics/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
