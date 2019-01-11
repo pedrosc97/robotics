@@ -27,15 +27,6 @@
 	<remap from="/artrack_keyinput/iupkeyboard" 	to="/keyboard/keyup" />
 </node>
 
-<node name="droneController" pkg="artrack" type="artrack_controller" output="screen">
-	<remap from="/artrack_controller/autonomous" 	to="/artrack_keyinput/flightModePub" />
-	<remap from="/artrack_controller/imgcoord" 		to="/artrack_imgproc/faceCentroid" />
-	<remap from="/artrack_controller/resolution" 	to="/artrack_imgproc/imgResolution" />
-	<remap from="/artrack_controller/takeOff" 		to="/artrack_keyinput/takeoff" />
-	<remap from="/artrack_controller/landing" 		to="/artrack_keyinput/land" />
-	<remap from="/artrack_controller/faceSize"		to="/artrack_imgproc/faceSize" />
-</node>
-
 <!-- Start Gazebo with wg world running in (max) realtime -->
 <include file="$(find hector_gazebo_worlds)/launch/sick_robot_day_2014.launch"/>
 
@@ -48,5 +39,14 @@
         controller/position
         "/>
   </include>
+
+<node name="droneController" pkg="artrack" type="artrack_controller" output="screen" launch-prefix="/home/pedrosc/robotics/src/artrack/startEnginesDrone">
+	<remap from="/artrack_controller/autonomous" 	to="/artrack_keyinput/flightModePub" />
+	<remap from="/artrack_controller/imgcoord" 		to="/artrack_imgproc/faceCentroid" />
+	<remap from="/artrack_controller/resolution" 	to="/artrack_imgproc/imgResolution" />
+	<remap from="/artrack_controller/takeOff" 		to="/artrack_keyinput/takeoff" />
+	<remap from="/artrack_controller/landing" 		to="/artrack_keyinput/land" />
+	<remap from="/artrack_controller/faceSize"		to="/artrack_imgproc/faceSize" />
+</node>
 
 </launch>
