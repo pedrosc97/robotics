@@ -72,8 +72,8 @@ public:
     errorXMax = Xmax / 2;
     errorYMax = Ymax / 2;
 
-    Kpy = -0.2 / Xmax;
-    Kpz = -0.35 / Ymax;
+    Kpy = -0.4 / Xmax;
+    Kpz = -0.4 / Ymax;
     Kpx = 0.1 / maxFaceArea;
 
   	if (droneStatus) {
